@@ -26,7 +26,7 @@ executable mandelbrot-exe
   build-depends:       base >= 4.7 && < 5
                      , mandelbrot
                      , diagrams-lib
-                     , diagrams-svg
+                     , diagrams-rasterific
   default-language:    Haskell2010
 
 test-suite mandelbrot-test
