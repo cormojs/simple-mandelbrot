@@ -4,10 +4,10 @@ module Main where
 import Data.Complex (Complex(..), magnitude)
 import qualified Diagrams.Prelude as D
 
-import qualified Diagrams.Backend.SVG.CmdLine as SVG
+import qualified Diagrams.Backend.Rasterific.CmdLine as CmdLine
 
 main :: IO ()
-main = SVG.mainWith (picture 32 2.0)
+main = CmdLine.mainWith (picture 32 2.0)
 
 type C = Complex Double
 
@@ -47,5 +47,5 @@ grid n v0 v1 = map (\y -> map (:+ y) s) s
 
 image n inf = map (map (toSquare . toPixel . (testMandelbrot n inf))) $ grid 64 (-2) 2
 
-picture :: Int -> Double -> D.Diagram SVG.B
+picture :: Int -> Double -> D.Diagram CmdLine.B
 picture n inf = D.bgFrame 3 D.pink $ (D.vcat . map D.hcat $ image n inf)
